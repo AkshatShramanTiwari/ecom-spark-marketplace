@@ -19,6 +19,7 @@ import SellerOrders from "./pages/seller/SellerOrders";
 import CustomerDashboard from "./pages/customer/CustomerDashboard";
 import Orders from "./pages/customer/Orders";
 import OrderDetail from "./pages/customer/OrderDetail";
+import CategoryPage from "./pages/CategoryPage";
 import { AuthProvider } from "./contexts/AuthContext";
 import { CartProvider } from "./contexts/CartContext";
 import { WishlistProvider } from "./contexts/WishlistContext";
@@ -26,20 +27,19 @@ import { WishlistProvider } from "./contexts/WishlistContext";
 const queryClient = new QueryClient();
 
 const App = () => (
-  <QueryClientProvider client={queryClient}>
+  <BrowserRouter>
     <AuthProvider>
       <CartProvider>
         <WishlistProvider>
-          <TooltipProvider>
-            <Toaster />
-            <Sonner />
-            <BrowserRouter>
+          <QueryClientProvider client={queryClient}>
+            <TooltipProvider>
               <Routes>
                 {/* Public Routes */}
                 <Route path="/" element={<Index />} />
                 <Route path="/product/:id" element={<ProductDetail />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/register" element={<Register />} />
+                <Route path="/category/:category" element={<CategoryPage />} />
 
                 {/* Customer Routes */}
                 <Route path="/cart" element={<Cart />} />
@@ -58,12 +58,14 @@ const App = () => (
                 {/* 404 Route */}
                 <Route path="*" element={<NotFound />} />
               </Routes>
-            </BrowserRouter>
-          </TooltipProvider>
+              <Toaster />
+              <Sonner />
+            </TooltipProvider>
+          </QueryClientProvider>
         </WishlistProvider>
       </CartProvider>
     </AuthProvider>
-  </QueryClientProvider>
+  </BrowserRouter>
 );
 
 export default App;
