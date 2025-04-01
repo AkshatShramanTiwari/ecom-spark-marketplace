@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { 
@@ -198,7 +197,7 @@ const SellerDashboard = () => {
                     Revenue
                   </div>
                   <div className="text-2xl font-bold">
-                    $12,450
+                    ₹12,450
                   </div>
                 </div>
               </div>
@@ -346,7 +345,7 @@ const SellerDashboard = () => {
                         <p className="text-gray-500">
                           {new Date(order.createdAt).toLocaleDateString()}
                         </p>
-                        <p className="font-medium">${order.total.toFixed(2)}</p>
+                        <p className="font-medium">₹{order.total.toFixed(2)}</p>
                       </div>
                     </div>
                   ))}

@@ -184,7 +184,7 @@ const ProductDetail = () => {
               </div>
             </div>
 
-            <div className="text-3xl font-bold">${product.price.toFixed(2)}</div>
+            <div className="text-3xl font-bold">₹{product.price.toFixed(2)}</div>
 
             {isLowStock && (
               <div className="flex items-center text-red-500">
@@ -265,7 +265,7 @@ const ProductDetail = () => {
                 <div>
                   <span className="font-medium">Free Delivery</span>
                   <p className="text-sm text-gray-500">
-                    Free shipping on orders over $50
+                    Free shipping on orders over ₹1000
                   </p>
                 </div>
               </div>
@@ -294,10 +294,9 @@ const ProductDetail = () => {
         {/* Product Details Tabs */}
         <div className="mt-12">
           <Tabs defaultValue="description">
-            <TabsList className="grid w-full grid-cols-3">
+            <TabsList className="grid w-full grid-cols-2">
               <TabsTrigger value="description">Description</TabsTrigger>
               <TabsTrigger value="specifications">Specifications</TabsTrigger>
-              <TabsTrigger value="reviews">Reviews</TabsTrigger>
             </TabsList>
             <TabsContent value="description" className="mt-4 p-4 border rounded-md">
               <p className="text-gray-700">{product.description}</p>
@@ -329,17 +328,9 @@ const ProductDetail = () => {
                   </div>
                   <div className="flex justify-between py-1 border-b">
                     <span className="font-medium">Shipping</span>
-                    <span>Worldwide</span>
+                    <span>Nationwide</span>
                   </div>
                 </div>
-              </div>
-            </TabsContent>
-            <TabsContent value="reviews" className="mt-4 p-4 border rounded-md">
-              <div className="text-center py-8">
-                <p className="text-gray-500">No reviews yet for this product.</p>
-                {isCustomer && (
-                  <Button className="mt-4">Write a Review</Button>
-                )}
               </div>
             </TabsContent>
           </Tabs>

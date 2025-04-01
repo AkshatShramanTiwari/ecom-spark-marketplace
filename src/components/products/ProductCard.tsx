@@ -112,7 +112,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
         <CardContent className="p-4">
           <div className="text-sm text-muted-foreground mb-1">{product.category}</div>
           <h3 className="font-medium text-lg line-clamp-2 mb-1">{product.name}</h3>
-          <div className="text-lg font-bold">${product.price.toFixed(2)}</div>
+          <div className="text-lg font-bold">₹{product.price.toFixed(2)}</div>
         </CardContent>
         
         <CardFooter className="p-4 pt-0">

@@ -13,12 +13,28 @@ const SellerProducts = () => {
   const { toast } = useToast();
   
   const handleAddProduct = () => {
-    // In a real app, this would navigate to a form
-    // For now, we'll show a toast message
+    // Navigate to a new product form page
+    // Since we don't have an actual form page yet, we'll show a toast
     toast({
-      title: "Feature in development",
-      description: "The add product functionality is coming soon!",
+      title: "Adding new product",
+      description: "This would navigate to a product form in a real app",
     });
+    
+    // For demo purposes, add a mock product to the list
+    const newProduct = {
+      id: `product-${Date.now()}`,
+      name: "New Product",
+      description: "This is a newly added product",
+      price: 999,
+      stock: 25,
+      images: ["/placeholder.svg"],
+      category: "Other",
+      sellerId: "seller-1",
+      sellerName: "Demo Seller",
+      createdAt: new Date().toISOString()
+    };
+    
+    setProducts(prevProducts => [newProduct, ...prevProducts]);
   };
   
   return (
